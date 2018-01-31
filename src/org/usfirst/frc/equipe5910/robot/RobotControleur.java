@@ -2,6 +2,8 @@ package org.usfirst.frc.equipe5910.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -12,12 +14,36 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class RobotControleur extends IterativeRobot {
 
+	public class CommandeGrimpeurDemarrer extends Command {
+		public CommandeGrimpeurDemarrer() {
+			//requires(RobotControleur.robot.grimpeur);
+			 
+		 }
+		 
+		 @Override
+		protected void initialize() {
+			 //RobotControleur.robot.grimpeur.grimper();
+			 System.out.println("Executer Grimper");
+		}
+		 
+		@Override
+		protected boolean isFinished() {
+			return true;
+		}
+	}
+		
 	public static final int MANETTE_CONDUITE_PRINCIPALE = 0;
 	public static final int MANETTE_ACCESSOIRE = 1;	
+	public static final int BOUTON_GRIMPEUR = 6;
+	public static final int BOUTON_INTAKE = 5;
+	public static final int BOUTON_MACHOIRE = 10;
+	public static final int BOUTON_INDEXEUR = 1;
 	
     private Joystick manetteConduitePrincipale;
     private Joystick manetteAccessoire;	
-	
+
+    
+    
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -28,6 +54,9 @@ public class RobotControleur extends IterativeRobot {
 		System.out.println("robotInit()");
     	manetteConduitePrincipale = new Joystick(MANETTE_CONDUITE_PRINCIPALE);
     	manetteAccessoire = new Joystick(MANETTE_ACCESSOIRE);
+    	JoystickButton actionGrimpeur = new JoystickButton(manetteConduitePrincipale, BOUTON_GRIMPEUR);
+    	actionGrimpeur.whenPressed(new CommandeGrimpeurDemarrer());
+    	//actionGrimpeur.whenReleased(new CommandeGrimpeurArreter());
 	}
 
 	/**

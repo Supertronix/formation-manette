@@ -1,1 +1,1 @@
-# formation-manette
+# projet-initial

@@ -1,5 +1,8 @@
 package org.usfirst.frc.equipe5910.robot;
 
+import com.team5910.frc2017.robot.Robot;
+import com.team5910.frc2017.robot.outil.Calculateur;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -54,6 +57,8 @@ public class RobotControleur extends IterativeRobot {
 		roueArriereGauche.setInverted(INVERSION_ROUE_ARRIERE_GAUCHE); // TRUE
 		roueAvantDroite.setInverted(INVERSION_ROUE_AVANT_DROIT);
 		roueArriereDroite.setInverted(INVERSION_ROUE_ARRIERE_DROIT);
+		
+		
 	}
 
 	/**
@@ -87,7 +92,6 @@ public class RobotControleur extends IterativeRobot {
 	public static final int CONDUITE_X_DROITE = 4;
 	public static final int CONDUITE_Y_DROITE = 5;
 
-	
 	/**
 	 * This function is called periodically during operator control
 	 */
@@ -112,7 +116,9 @@ public class RobotControleur extends IterativeRobot {
 	    //public double getConduiteDroiteY() {
 	    double yDroit = -manetteConduitePrincipale.getRawAxis(CONDUITE_Y_DROITE);
 	    System.out.println("Y droit : " + yDroit);
-	    this.roueArriereDroite.set(yDroit);	  		
+	    this.roueArriereDroite.set(yDroit);	
+	    
+	    // Robot.drive.conduire(Calculateur.clamp(x + y1, -1, 1), Calculateur.clamp(y2 - x, -1, 1), Calculateur.clamp(y1 - x, -1, 1), Calculateur.clamp(x + y2, -1, 1));
 	}
 
 	/**

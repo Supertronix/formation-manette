@@ -1,6 +1,7 @@
 package org.usfirst.frc.equipe5910.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -11,6 +12,12 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  */
 public class RobotControleur extends IterativeRobot {
 
+	public static final int MANETTE_CONDUITE_PRINCIPALE = 0;
+	public static final int MANETTE_ACCESSOIRE = 1;	
+	
+    private Joystick manetteConduitePrincipale;
+    private Joystick manetteAccessoire;	
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -19,6 +26,8 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		System.out.println("robotInit()");
+    	manetteConduitePrincipale = new Joystick(MANETTE_CONDUITE_PRINCIPALE);
+    	manetteAccessoire = new Joystick(MANETTE_ACCESSOIRE);
 	}
 
 	/**
@@ -46,12 +55,34 @@ public class RobotControleur extends IterativeRobot {
 		System.out.println("teleopInit()");
 	}
 
+	
+	public static final int CONDUITE_X_GAUCHE = 0;
+	public static final int CONDUITE_Y_GAUCHE = 1;
+	public static final int CONDUITE_X_DROITE = 4;
+	public static final int CONDUITE_Y_DROITE = 5;
+	
 	/**
 	 * This function is called periodically during operator control
 	 */
 	@Override
 	public void teleopPeriodic() {
 		System.out.println("teleopPeriodic()");
+	    //public double getConduiteGaucheX() {
+	    double xGauche = manetteConduitePrincipale.getRawAxis(CONDUITE_X_GAUCHE);
+	    System.out.println("X gauche : " + xGauche);
+	    
+	    //public double getConduiteGaucheY() {
+	    double yGauche = -manetteConduitePrincipale.getRawAxis(CONDUITE_Y_GAUCHE); 
+	    System.out.println("Y gauche : " + yGauche);
+	    
+	    //public double getConduiteDroiteX() {
+	    double xDroit = manetteConduitePrincipale.getRawAxis(CONDUITE_X_DROITE);
+	    System.out.println("X droit : " + xDroit);
+	      
+	    //public double getConduiteDroiteY() {
+	    double yDroit = -manetteConduitePrincipale.getRawAxis(CONDUITE_Y_DROITE);
+	    System.out.println("Y droit : " + yDroit);
+	  		
 	}
 
 	/**

@@ -1,8 +1,5 @@
 package org.usfirst.frc.equipe5910.robot;
 
-import com.team5910.frc2017.robot.Robot;
-import com.team5910.frc2017.robot.outil.Calculateur;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;

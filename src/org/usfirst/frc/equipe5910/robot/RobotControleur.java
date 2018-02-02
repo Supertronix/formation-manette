@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -65,6 +66,8 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		System.out.println("autonomousInit()");
+		// http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/command/Scheduler.html
+		Scheduler.getInstance().run(); // pour faire marcher les commandes
 	}
 
 	/**
@@ -73,6 +76,8 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		System.out.println("autonomousPeriodic()");
+		// http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/command/Scheduler.html
+		Scheduler.getInstance().run(); // pour faire marcher les commandes
 	}
 
 	/**
@@ -80,8 +85,10 @@ public class RobotControleur extends IterativeRobot {
 	 * mode
 	 */
 	@Override
-	public void teleopInit() {
+	public void teleopInit() {		
 		System.out.println("teleopInit()");
+		// http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/command/Scheduler.html
+		Scheduler.getInstance().run(); // pour faire marcher les commandes
 	}
 
 	
@@ -96,6 +103,9 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		System.out.println("teleopPeriodic()");
+		// http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/command/Scheduler.html
+		Scheduler.getInstance().run(); // pour faire marcher les commandes		
+		
 	    //public double getConduiteGaucheX() {
 	    double xGauche = manetteConduitePrincipale.getRawAxis(CONDUITE_X_GAUCHE);
 	    System.out.println("X gauche : " + xGauche);
@@ -120,6 +130,8 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 		System.out.println("testPeriodic()");
+		// http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/command/Scheduler.html
+		Scheduler.getInstance().run(); // pour faire marcher les commandes		
 	}
 	
 	/**
@@ -128,6 +140,8 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void testInit() {
 		System.out.println("testInit()");
+		// http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/command/Scheduler.html
+		Scheduler.getInstance().run(); // pour faire marcher les commandes		
 	}
 	
 }
